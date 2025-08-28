@@ -4,20 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // Fancy icons
+import { ChevronLeft, ChevronRight } from "lucide-react"; 
+import Image from "next/image"; // ✅ Next.js Image import
 
 gsap.registerPlugin(TextPlugin);
 
 export default function LandingPage() {
   const headingRef = useRef(null);
 
-  // Carousel images
+  // Carousel images (must be in /public folder)
   const images = [
-     "/hostel1.jpg",
+    "/hostel1.jpg",
     "/hostel2.jpg",
     "/hostel3.jpg",
     "/hostel4.jpg",
-
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,24 +61,23 @@ export default function LandingPage() {
         transition={{ duration: 0.8 }}
         className="relative w-full max-w-5xl h-[250px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl border-4 border-green-600"
       >
-        {/* Image */}
-        <img
+        {/* ✅ Image using Next.js Image */}
+        <Image
           src={images[currentIndex]}
           alt="Carousel"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
 
-        {/* Navigation Arrows (slightly above bottom) */}
+        {/* Navigation Arrows */}
         <div className="absolute bottom-6 left-0 right-0 flex justify-between px-6">
-          {/* Left Arrow */}
           <button
             onClick={prevImage}
             className="bg-green-600 hover:bg-green-700 text-white border-2 border-white p-3 rounded-full shadow-lg transition-all duration-300"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-
-          {/* Right Arrow */}
           <button
             onClick={nextImage}
             className="bg-green-600 hover:bg-green-700 text-white border-2 border-white p-3 rounded-full shadow-lg transition-all duration-300"
@@ -110,8 +109,9 @@ export default function LandingPage() {
         >
           University Institute of Engineering & Technology (UIET) was
           established by Kurukshetra University in 2004 with objective to
-          develop as a "Centre of Excellence" and offer quality technical
-          education and to undertake research in Engineering & Technology.
+          develop as a &quot;Centre of Excellence&quot; and offer quality
+          technical education and to undertake research in Engineering &
+          Technology.
         </motion.p>
 
         <motion.p

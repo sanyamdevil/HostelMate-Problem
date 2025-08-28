@@ -1,7 +1,7 @@
-
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ParallelScrollLanding() {
@@ -25,22 +25,42 @@ export default function ParallelScrollLanding() {
       className="relative w-full h-[300vh] overflow-hidden bg-white"
     >
       {/* ===== Background Parallax Layers ===== */}
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute inset-0 bg-[url('/hostel5.png')] bg-cover bg-center opacity-60"
-      />
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute inset-0 bg-[url('/hostel2.jpg')] bg-cover bg-center opacity-50 mix-blend-overlay"
-      />
-      <motion.div
-        style={{ y: y3 }}
-        className="absolute inset-0 bg-[url('/hostel3.jpg')] bg-cover bg-center opacity-60 mix-blend-screen"
-      />
-      <motion.div
-        style={{ y: y4 }}
-        className="absolute inset-0 bg-[url('/hostel6.jpg')] bg-cover bg-center opacity-40"
-      />
+      <motion.div style={{ y: y1 }} className="absolute inset-0">
+        <Image
+          src="/hostel5.png"
+          alt="Hostel background 1"
+          fill
+          className="object-cover opacity-60"
+          priority
+        />
+      </motion.div>
+
+      <motion.div style={{ y: y2 }} className="absolute inset-0">
+        <Image
+          src="/hostel2.jpg"
+          alt="Hostel background 2"
+          fill
+          className="object-cover opacity-50 mix-blend-overlay"
+        />
+      </motion.div>
+
+      <motion.div style={{ y: y3 }} className="absolute inset-0">
+        <Image
+          src="/hostel3.jpg"
+          alt="Hostel background 3"
+          fill
+          className="object-cover opacity-60 mix-blend-screen"
+        />
+      </motion.div>
+
+      <motion.div style={{ y: y4 }} className="absolute inset-0">
+        <Image
+          src="/hostel6.jpg"
+          alt="Hostel background 4"
+          fill
+          className="object-cover opacity-40"
+        />
+      </motion.div>
 
       {/* ===== Foreground Content ===== */}
       <section className="relative z-20 h-screen flex flex-col items-center justify-center text-center px-6">
@@ -48,9 +68,8 @@ export default function ParallelScrollLanding() {
           🚀 Simplify Hostel Living
         </h1>
         <p className="max-w-2xl mt-6 text-lg text-gray-800">
-           Managing{" "}
-          <span className="text-green-800 font-semibold"> problems </span> can
-           has never been this easy. Report and resolve issues—all in one place.
+          Managing{" "}
+          <span className="text-green-800 font-semibold">problems</span> has never been this easy. Report and resolve issues—all in one place.
         </p>
       </section>
 
@@ -59,7 +78,7 @@ export default function ParallelScrollLanding() {
           ✨ Your Comfort, Our Priority
         </h2>
         <p className="max-w-2xl mt-6 text-lg font-extrabold text-gray-700">
-           From maintenance requests to facility concerns, we make sure your {" "}
+          From maintenance requests to facility concerns, we make sure your{" "}
           <span className="text-green-900">Hostel Experience</span> is hassle-free.
         </p>
       </section>
@@ -70,10 +89,9 @@ export default function ParallelScrollLanding() {
         </h2>
         <p className="max-w-2xl mt-6 text-lg font-extrabold text-gray-700">
           With our streamlined system, your{" "}
-          <span className="text-green-900 font-bold">
-            problems
-          </span>{" "}
-             don’t pile up—they get solved.
+          <span className="text-green-900 font-bold">problems</span>{" "}
+          don&apos;t
+          pile up—they get solved.
         </p>
       </section>
     </main>
