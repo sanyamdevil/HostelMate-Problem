@@ -19,9 +19,7 @@ export async function POST(req) {
         if (evt.type === 'user.created') {
             console.log('userId:', evt.data.id)
         }
-        if (evt.type === 'user.updated') {
-            console.log('user is updated:', evt.data.id)
-        }
+        
         return new Response('Error verifying webhook', { status: 400 })
     }
 }
