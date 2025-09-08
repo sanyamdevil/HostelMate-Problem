@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server"; 
 import { connectDB } from "@/lib/mongodb";
 import User from "@/models/User";
 
